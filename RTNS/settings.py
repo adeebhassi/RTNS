@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.90.39']
+ALLOWED_HOSTS = ['*','0.0.0.0']
 
 
 # Application definition
@@ -159,7 +159,7 @@ EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 
 ADMIN_EMAIL='adeebhassi@gmail.com'
 
-ALLOWED_HOSTS = ['192.168.90.39']
+ALLOWED_HOSTS = ['*','0.0.0.0']
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
