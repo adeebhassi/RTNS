@@ -1,0 +1,290 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Slider HTML CSS | Codehal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .swiper-slide .card {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+    }
+
+    .swiper-slide .card .card-content {
+      flex-grow: 1 !important;
+    }
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<h1 class="text-center bg-primary my-3 mx-5">Invited Speakers</h1>
+  <body>
+    <div class="container mb-5">
+      <h2 class="text-dark px-2 py-1 text-center" style="text-decoration:none;">International Speakers</h2>
+      <div class="row">
+        <section>
+          <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content">
+              {% for speaker in I_speakers %}
+              <div class="swiper-slide card">
+                <div class="card-content">
+                  <div class="image">
+                    <img src="{{speaker.image.url}}" alt="">
+                  </div>
+
+                  <div class="social-media">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+
+                  <div class="name-profession">
+                    <span class="name">{{speaker.name}}</span>
+                    <span class="profession">{{speaker.designation}}</span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+
+        </section>
+
+      </div>
+
+      <h2 class="text-dark px-2 py-1 text-center" style=" text-decoration:none;">National Speakers</h2>
+      <div class="row">
+        <section>
+          <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content">
+              {% for speaker in n_speakers %}
+              <div class="swiper-slide card">
+                <div class="card-content">
+                  <div class="image">
+                    <img src="{{speaker.image.url}}" alt="">
+                  </div>
+
+                  <div class="social-media">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+
+                  <div class="name-profession">
+                    <span class="name">{{speaker.name}}</span>
+                    <span class="profession">{{speaker.designation}}</span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+
+        </section>
+
+      </div>
+    </div>
+
+    
+   <script src="script.js"></script>
+  </body>
+
+</html>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    loop: true,
+    grabCursor: true,
+    loopFillGroupWithBlank: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+      
+    },
+  });
+  var swiper = new Swiper(".mySwiper2", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    loop: true,
+    grabCursor: true,
+    loopFillGroupWithBlank: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper2-button-next",
+      prevEl: ".swiper2-button-prev",
+      
+    },
+  });
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+  * {
+
+    font-family: 'Poppins', sans-serif;
+  }
+
+  section {
+    position: relative;
+    height: 500px;
+    width: 1075px;
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper {
+    width: 950px;
+  }
+
+  .container {
+    border-radius: 20px;
+  }
+
+  .card .image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  .card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #000;
+  }
+
+  .card {
+    position: relative;
+    background: #000;
+    border: 3px solid rgb(75, 167, 243);
+    ;
+    border-radius: 20px;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(75, 167, 243);
+    ;
+    clip-path: circle(55% at 0 0);
+    border-top-left-radius: 10px;
+  }
+
+  .card .card-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .card .social-media {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card .social-media i {
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .card .social-media i:hover {
+    color: rgb(75, 167, 243);
+    ;
+  }
+
+  .card .name-profession {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    color: #fff;
+  }
+
+  .name-profession .name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .name-profession .profession {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+
+
+  .swiper-pagination-bullet {
+    height: 7px;
+    width: 26px;
+    background: rgb(75, 167, 243);
+    ;
+    border-radius: 25px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: rgb(75, 167, 243);
+    ;
+  }
+
+  .swiper2-button-next,
+  .swiper2-button-prev {
+    color: rgb(75, 167, 243);
+    ;
+  }
+
+  .sw-next,
+  .sw-prev {
+    color: rgb(75, 167, 243);
+    ;
+  }    
+  
+</style>
+{% endblock content %}
