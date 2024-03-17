@@ -89,12 +89,9 @@ WSGI_APPLICATION = 'RTNS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'ayzDJJDyKMNmrSrNABJkvhuZiRYAnrpy',
-        'HOST':'roundhouse.proxy.rlwy.net',
-        'PORT':'20707',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 
