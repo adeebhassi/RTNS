@@ -1,10 +1,9 @@
 import json
+import platform
 import requests
 from pptx import Presentation
 import tempfile
 from docx2pdf import convert
-from comtypes import client
-
 
 def ppt2pdf(f_path,filename, token):
 
@@ -29,15 +28,8 @@ def ppt2pdf(f_path,filename, token):
 
 
 def convert_pptx_to_pdf(pptx_file_path):
-    powerpoint = client.CreateObject("Powerpoint.Application")
-    powerpoint.Visible = True
-
-    presentation = powerpoint.Presentations.Open(pptx_file_path)
     pdf_file_path = pptx_file_path.replace('.pptx', '.pdf')
 
-    presentation.SaveAs(pdf_file_path, 32)  # 32 represents the PDF format
-
-    presentation.Close()
-    powerpoint.Quit()
+    subprocess.call(['libreoffice', '--convert-to', 'pdf', '--outdir', pdf_file_path, pptx_file_path])
 
     return pdf_file_path
