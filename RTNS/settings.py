@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app']
+ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1']
 
 
 # Application definition
@@ -136,7 +136,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'staticfiles')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
@@ -164,7 +164,7 @@ EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 
 ADMIN_EMAIL='adeebhassi@gmail.com'
 
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app']
+ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1']
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
