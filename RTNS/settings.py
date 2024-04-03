@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'channels',
     'crispy_forms',
     'certificate',
-    'event_reg'
+    'event_reg',
+    'partials'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'RTNS.middleware.HeaderMiddleware',
 ]
 
 ROOT_URLCONF = 'RTNS.urls'
@@ -155,14 +157,17 @@ JAZZMIN_SETTINGS = {
 AUTH_USER_MODEL= "user_auth.User"
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
-EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
+# EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 
-ADMIN_EMAIL='adeebhassi@gmail.com'
+# ADMIN_EMAIL='adeebhassi@gmail.com'
+# settings.py
+
+
 
 ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1']
 LOGIN_URL = 'user_auth:user_signin'

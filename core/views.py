@@ -2,10 +2,14 @@ from django.shortcuts import render
 from events.models import *
 from datetime import date
 from django.core.exceptions import ObjectDoesNotExist
+from .models import *
 # Create your views here.
 def index(requst):
     today=date.today()
     try:
+        slider_images = SliderImage.objects.all()
+        about_us = AboutUs.objects.first()
+        patron = Patron.objects.all()
         upcoming_event=Event.objects.filter(date__gte=today).order_by('date').first()
         if upcoming_event:
             earliest_speech=Speech.objects.earliest('start_time')
@@ -22,4 +26,9 @@ def index(requst):
                 return render(requst,'core/index.html',contaxt)
     except ObjectDoesNotExist:
         pass
-    return render(requst,'core/index.html',{})
+    home_content={
+        'slider_images': slider_images,
+        'about_us': about_us,
+        'patron': patron,
+    }
+    return render(requst,'core/index.html',home_content)
