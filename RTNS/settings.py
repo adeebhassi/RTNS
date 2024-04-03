@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','rtns-uejbd.org']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -169,7 +169,7 @@ AUTH_USER_MODEL= "user_auth.User"
 
 
 
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','rtns-uejbd.org'],
+ALLOWED_HOSTS = ['*'],
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
