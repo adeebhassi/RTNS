@@ -169,7 +169,7 @@ AUTH_USER_MODEL= "user_auth.User"
 
 
 
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1','rtns-uejbd.org'],
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
