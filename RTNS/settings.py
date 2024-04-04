@@ -135,7 +135,8 @@ AUTH_USER_MODEL= "user_auth.User"
 ALLOWED_HOSTS = ['rtns-uejbd.org']
 LOGIN_URL = 'user_auth:user_signin'
 
+
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
-CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://rtns-uejbd.org']
 
 
