@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'event_reg',
     'partials'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,9 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'RTNS.middleware.HeaderMiddleware',
 ]
-
 ROOT_URLCONF = 'RTNS.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -66,14 +63,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.header_context',
+                'utils.context_processors.footer_context',
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'RTNS.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -88,8 +84,6 @@ DATABASES = {
         
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -107,56 +101,37 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 JAZZMIN_SETTINGS = {
     'site_header':"RTNS",
     'site_brand':"RTNS",
     'site_logo':"Image/RTNSlogobg.png",
     'copyright': "RTNS@copyright",
 }
-
 AUTH_USER_MODEL= "user_auth.User"
-
-
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_USE_TLS = True
 # EMAIL_PORT = 587
 # EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
 # EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
-
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-
-
-
 ALLOWED_HOSTS = ['*'],
 LOGIN_URL = 'user_auth:user_signin'
 
