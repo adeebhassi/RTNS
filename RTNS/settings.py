@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['rtns-uejbd.org']
+ALLOWED_HOSTS = ['http://rtns-uejbd.org/']
 # Application definition
 INSTALLED_APPS = [
     'jazzmin',
@@ -132,10 +132,10 @@ AUTH_USER_MODEL= "user_auth.User"
 # EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-ALLOWED_HOSTS = ['rtns-uejbd.org'],
+ALLOWED_HOSTS = ['http://rtns-uejbd.org/'],
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
-CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','rtns-uejbd.org']
+CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app']
 
 
