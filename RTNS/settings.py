@@ -132,7 +132,7 @@ AUTH_USER_MODEL= "user_auth.User"
 # EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-ALLOWED_HOSTS = ['https://rtns-uejbd.org/'],
+ALLOWED_HOSTS = ['https://rtns-uejbd.org/']
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
