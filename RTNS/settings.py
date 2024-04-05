@@ -140,8 +140,3 @@ GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json
 CSRF_TRUSTED_ORIGINS = ['https://rtns-uejbd.org']
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_HEADERS = [
-    'Content-Type',
-    'Authorization',
-]
