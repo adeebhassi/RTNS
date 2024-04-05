@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['rtns-uejbd.org']
+ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app']
 # Application definition
 INSTALLED_APPS = [
     'jazzmin',
@@ -132,7 +132,7 @@ AUTH_USER_MODEL= "user_auth.User"
 # EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-ALLOWED_HOSTS = ['rtns-uejbd.org','127.0.0.1']
+ALLOWED_HOSTS = ['rtns-uejbd.org','127.0.0.1','web-production-eba5.up.railway.app']
 LOGIN_URL = 'user_auth:user_signin'
 
 
