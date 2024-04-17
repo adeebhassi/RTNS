@@ -20,11 +20,10 @@ class EmailConfiguration(models.Model):
     smtp_host = models.CharField(max_length=255)
     smtp_port = models.IntegerField()
     admin_email = models.EmailField()
-<<<<<<< HEAD
+
     password = models.CharField(max_length=255)
     
 class Gallery(models.Model):
     image=models.ImageField(upload_to='Gallery/')
-=======
+
     password = models.CharField(max_length=255)
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
