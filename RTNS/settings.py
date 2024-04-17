@@ -164,10 +164,6 @@ AUTH_USER_MODEL= "user_auth.User"
 
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-
-
-
-ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app','127.0.0.1']
 ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app']
 
 LOGIN_URL = 'user_auth:user_signin'
