@@ -3,10 +3,7 @@ from django.core.exceptions import ValidationError
 from django.contrib import admin
 
 class WebsiteHeader(models.Model):
-
     rtns_logo = models.ImageField(upload_to='header',default='static/Image/RTNSlogo.png')
-    rtns_logo = models.ImageField(upload_to='images/header',default='static/Image/RTNSlogo.png')
-
     title = models.CharField(max_length=100, default="International Conference on Recent Trends in Natural Sciences")
 
     def save(self, *args, **kwargs):
@@ -23,20 +20,7 @@ class WebsiteHeader(models.Model):
 
 class DepartmentLogo(models.Model):
     header = models.ForeignKey(WebsiteHeader, on_delete=models.CASCADE, related_name='department_logos')
-
     logo = models.ImageField(upload_to='header/department_logos')
-
-    logo = models.ImageField(upload_to='images/header/department_logos')
-
-    def clean(self):
-        if self.header.department_logos.count() >= 4:
-            raise ValidationError("Only 4 DepartmentLogos are allowed per Header.")
-    def delete(self, *args, **kwargs):
-        pass    
-    def save(self, *args, **kwargs):
-        
-        super().save(*args, **kwargs)
-
         
         
 class WebsiteFooter(models.Model):
