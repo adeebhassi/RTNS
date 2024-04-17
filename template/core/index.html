@@ -69,44 +69,39 @@
     <!--Slider Start-->
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{% static 'Image/s1.jpeg' %}" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'Image/s2.jpeg' %}" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'Image/s3.jpeg' %}" alt="Third slide">
-          </div>
+      <ol class="carousel-indicators">
+        {% for image in slider_images %}
+        <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+        {% endfor %}
+      </ol>
+      <div class="carousel-inner">
+        {% for image in slider_images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img class="d-block w-100" src="{{ image.image.url }}" alt="Slide {{ forloop.counter }}">
         </div>
-        {% if event_date %}
-        <div class="countdown">
-          
-          <h3><b>{{event_date}}</b></h3>
-          <h1>Event Start in</h1>
-          <div id="countdown_active"></div>
-          <a href="{% url 'event_reg:registration'%}" class="btn reg_button">Register</a>
-        </div>
-        {% else %}
-        <div class="countdown" style="width: 300px;">
-          <h1><b>Stay tuned for future events!</b></h1>
-        </div>
-        {% endif %}
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        {% endfor %}
       </div>
+      {% if event_date %}
+      <div class="countdown">
+        <h3><b>{{ event_date }}</b></h3>
+        <h1>Event Start in</h1>
+        <div id="countdown_active"></div>
+        <a href="{% url 'event_reg:registration'%}" class="btn reg_button">Register</a>
+      </div>
+      {% else %}
+      <div class="countdown" style="width: 300px;">
+        <h1><b>Stay tuned for future events!</b></h1>
+      </div>
+      {% endif %}
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
       <input type="hidden" id="time" value="{{event_date_formatted}} {{event_time}}">
     <!--Slider End-->
     <script type="text/javascript">
@@ -114,7 +109,7 @@
       if (countdownTime){
         $('#countdown_active').countdown(countdownTime, function(event) {
           $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
-          $(this).html(event.strftime('<div class="single_count days"><h2>%d</h2><span>Days</span></div><div class="single_count hours "><h2>%H</h2><span>Hours</span></div><div class="single_count min"><h2>%M</h2><span>Min</span></div><div class="single_count sec"><h2>%S</h2><span>Sec</span></div>'));
+          $(this).html(event.strftime('<div class="single_count days"><h2>{{ remaining_days }}</h2><span>Days</span></div><div class="single_count hours "><h2>%H</h2><span>Hours</span></div><div class="single_count min"><h2>%M</h2><span>Min</span></div><div class="single_count sec"><h2>%S</h2><span>Sec</span></div>'));
         });
       }
       else{
@@ -130,20 +125,12 @@
     <section id="about_rtns" class="about_sec  p-3">
       <div class="row d-flex justify-content-between">
       <div class="col-md-6 about_img p-0">
-        <img src="{% static 'Image/s3.jpeg'%}" alt="" srcset="">
+        <img src="{{about_us.image.url}}" alt="" srcset="">
       </div>
+      
       <div class="col-md-6 about_para pl-md-5 py-3">
-        <h1>What is RTNS</h1>
-        <p>RTNS 2023, the Recent Trends in Natural Sciences conference, will provide a stimulating and exciting environment for participants to engage in discussions and collaborations related to various disciplines within the natural sciences. The conference aims to bring together experts, researchers, and professionals from different fields such as physics, chemistry, biology, environmental sciences, and more.
-
-          During the conference, attendees can expect a diverse program featuring keynote speeches, panel discussions, poster presentations, and workshops. These sessions will cover a wide range of recent trends, advancements, and challenges in the natural sciences. Participants will have the opportunity to learn about cutting-edge research, novel discoveries, and innovative methodologies across different scientific disciplines.
-          
-          
-          
-          
-          
-          
-          </p>
+        <h1>{{about_us.about_heading}}</h1>
+        <p>{{about_us.content}}</p>
         <button class="btn ">See More</button>
       </div>
     </div>
@@ -155,73 +142,43 @@
     
     <div class="container px-5 py-5 d-flex justify-content-center">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-4 mb-5">
+      {% for patron in patron %}
+        <div class="col-md-6 col-lg-4 col-sm-12 mb-5">
         <div class="member-container">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'Image/patron1.png' %}" alt="Card image cap" >
+                <img class="card-img-top" src="{{patron.image.url}}" alt="Card image cap" >
                 
             </div>
             <div class="card member-card-container p-2" style="width: 15rem;" >
-                <h5 class="card-title" style="font-family: serif;">Card title</h5>
-                <p class="card-text" style="font-family: sans-serif;">Some quick example text to build on the card title and make up the bulk of the card's Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis possimus aspernatur facilis nisi velit sit molestiae adipisci illum ut magnam, repellat modi veritatis enim inventore necessitatibus, tempora vitae placeat eum!</content></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="member-container">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'Image/patronab.png' %}" alt="Card image cap">
-                
-            </div>
-            <div class="card member-card-container" style="width: 15rem;">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title" style="font-family: serif;color:rgb(75, 167, 243);">{{patron.name}}</h5>
+                <h6 class="card-title" style="font-family: serif;">{{patron.patron_type}}</h6>
+                <p class="card-text" style="font-family: sans-serif;">{{patron.designation}}</p>
             </div>
         </div>
         </div>
-        <div class="col-md-4">
-        <div class="member-container">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'Image/Patroncd.png' %}" alt="Card image cap">
-                
-            </div>
-            <div class="card member-card-container" style="width: 15rem;">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="member-container">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'Image/patronef.png' %}" alt="Card image cap">
-                
-            </div>
-            <div class="card member-card-container" style="width: 15rem;">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="member-container">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'Image/patrongh.png' %}" alt="Card image cap">
-                
-            </div>
-            <div class="card member-card-container" style="width: 15rem;">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        </div>
+    {%endfor%}
     </div> 
     </div>  
     </div>
 </body>
 </body>
+
+
     
     <!--Patrons Section end-->
+
+    <div class="container">
+      <h1 class="text-center mb-5" style="color:  rgb(75, 167, 243);">Gallery</h1>
+      <div class="row m-2">
+        {% for image in gallery %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{image.image.url}}" alt="hello" class="card-img-top">  
+            </div>
+        </div>
+        {%endfor%}   
+    </div>
+  </div>
     {% endblock content %}
 </body>
 

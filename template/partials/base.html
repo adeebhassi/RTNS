@@ -53,15 +53,17 @@
 </head>
 
 <body>
+  
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-10 col-lg-8 pt-3">
                 <div class="row">
                   <div class="col-md-2">
-                    <img class="header_logo" src="{% static '/Image/RTNSlogo.png' %}" alt="" srcset="" class="img-fluid">
+                    <img class="header_logo" src="{{header.rtns_logo.url}}" alt="" srcset="" class="img-fluid">
                   </div>
                    <div class="col-md-9">
-                    <h3 class="pt-2 pl-1">3rd <span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3>
+                    <h3 class="pt-2 pl-1">{{header.title}}</h3>
+                    <!-- <h3 class="pt-2 pl-1">3rd <span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3> -->
                    </div> 
                     
                 </div>
@@ -72,15 +74,11 @@
                         <!-- <div class="p-0">
                             <img class="header_logo" src="{% static 'Image/botonylogo.png' %}" alt="" srcset="">
                         </div> -->
+                        {% for logo in dep_logos%}
                         <div class="p-0">
-                            <img class="header_logo" src="{% static 'Image/zoology-logo.png' %}" alt="" srcset="">
+                            <img class="header_logo" src="{{logo.logo.url}}" alt="" srcset="">
                         </div>
-                        <div class="p-0">
-                            <img class="header_logo" src="{% static 'Image/physics-logo.png' %}" alt="" srcset="">
-                        </div>
-                        <div class="p-0">
-                            <img  class="header_logo" src="{% static 'Image/chemistry-logo.png' %}" alt="" srcset="">
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -215,20 +213,20 @@
         <div class="col-sm-4">
           
             <div class="row text-center pt-4">
-                <h5 class="mt-5" style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color: rgb(255, 255, 255)">RTNS</h4><h6 style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color:azure">2024</h6>
+                <h5 class="mt-5" style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color: rgb(255, 255, 255)">{{footer.title}}</h4><h6 style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color:azure">{{footer.year}}</h6>
                 <div class="d-flex justify-content-center">
                     <span class="fas fa-phone-alt"></span>
-                    <span class="ms-2">+321 3434789</span>
+                    <span class="ms-2">{{footer.contact}}</span>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <span class="fas fa-envelope"></span> <span class="ms-2">Email@example.com</span>
+                    <span class="fas fa-envelope"></span> <span class="ms-2">{{footer.email}}</span>
                 </div>
                 
             </div>
         </div>
         <div class="col-sm-4 text-center">
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
-          <img class="sponsors_logo mt-2" src="{% static 'Image/ue.png' %}" alt="">
+          <img class="sponsors_logo mt-2" src="{{footer.sponsor_logo.url}}" alt="">
             
         </div>
         <div class="col-sm-4 text-center">

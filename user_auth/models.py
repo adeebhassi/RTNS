@@ -45,7 +45,7 @@ class Profile(models.Model):
     email_verification_token = models.UUIDField(default=uuid.uuid4, editable=False)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

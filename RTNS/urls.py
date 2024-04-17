@@ -21,6 +21,7 @@ from core.views import index
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 
+
 class CustomLoginView(LoginView):
     template_name = 'user_auth/sign_in.html'  # Adjust the path based on your actual directory structure
     success_url = reverse_lazy('user_dashboard')
@@ -34,6 +35,7 @@ urlpatterns = [
     path('contact/',include("contact_us.urls")),
     path('certificate/', include('certificate.urls')),
     path('event_reg/', include('event_reg.urls')),
+    path("partial/",include("partials.urls")),
     
 
 
