@@ -3,11 +3,10 @@ from django.core.exceptions import ValidationError
 from django.contrib import admin
 
 class WebsiteHeader(models.Model):
-<<<<<<< HEAD
+
     rtns_logo = models.ImageField(upload_to='header',default='static/Image/RTNSlogo.png')
-=======
     rtns_logo = models.ImageField(upload_to='images/header',default='static/Image/RTNSlogo.png')
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
+
     title = models.CharField(max_length=100, default="International Conference on Recent Trends in Natural Sciences")
 
     def save(self, *args, **kwargs):
@@ -24,9 +23,9 @@ class WebsiteHeader(models.Model):
 
 class DepartmentLogo(models.Model):
     header = models.ForeignKey(WebsiteHeader, on_delete=models.CASCADE, related_name='department_logos')
-<<<<<<< HEAD
+
     logo = models.ImageField(upload_to='header/department_logos')
-=======
+
     logo = models.ImageField(upload_to='images/header/department_logos')
 
     def clean(self):
@@ -37,7 +36,7 @@ class DepartmentLogo(models.Model):
     def save(self, *args, **kwargs):
         
         super().save(*args, **kwargs)
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
+
         
         
 class WebsiteFooter(models.Model):
