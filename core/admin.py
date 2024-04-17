@@ -6,5 +6,5 @@ admin.site.register(AboutUs)
 admin.site.register(Patron)
 admin.site.register(EmailConfiguration)
 admin.site.register(Gallery)
-admin.site.register(EmailConfiguration)
+
 
