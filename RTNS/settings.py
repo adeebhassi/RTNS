@@ -65,10 +65,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'utils.context_processors.header_context',
                 'utils.context_processors.footer_context',
-<<<<<<< HEAD
+
                 'utils.context_processors.dep_logo',
-=======
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
             ],
         },
     },
@@ -128,18 +126,13 @@ JAZZMIN_SETTINGS = {
     'copyright': "RTNS@copyright",
 }
 AUTH_USER_MODEL= "user_auth.User"
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_USE_TLS = True
 # EMAIL_PORT = 587
 # EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
 # EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
-<<<<<<< HEAD
+
 
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
@@ -147,12 +140,10 @@ AUTH_USER_MODEL= "user_auth.User"
 
 
 # ALLOWED_HOSTS = ['web-production-eba5.up.railway.app','127.0.0.1']
-ALLOWED_HOSTS = ['127.0.0.1']
-=======
+
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
 ALLOWED_HOSTS = ['rtns-uejbd.org','127.0.0.1','web-production-eba5.up.railway.app']
->>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
 LOGIN_URL = 'user_auth:user_signin'
 
 
