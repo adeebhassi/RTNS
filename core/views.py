@@ -12,8 +12,12 @@ def index(request):
         slider_images = SliderImage.objects.all()
         about_us = AboutUs.objects.first()
         patron = Patron.objects.all()
+<<<<<<< HEAD
         gallery=Gallery.objects.all()
         upcoming_event = Event.objects.filter(date__gte=today).order_by('date').first()
+=======
+        upcoming_event=Event.objects.filter(date__gte=today).order_by('date').first()
+>>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
         if upcoming_event:
             earliest_speech = Speech.objects.earliest('start_time')
             event_date = upcoming_event.date
@@ -34,10 +38,18 @@ def index(request):
                 return render(request, 'core/index.html', contaxt)
     except ObjectDoesNotExist:
         pass
+<<<<<<< HEAD
 
     home_content = {
+=======
+    home_content={
+>>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
         'slider_images': slider_images,
         'about_us': about_us,
         'patron': patron,
     }
+<<<<<<< HEAD
     return render(request, 'core/index.html', home_content)
+=======
+    return render(requst,'core/index.html',home_content)
+>>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a

@@ -7,8 +7,12 @@ def header_context(request):
 
 def footer_context(request):
     footer_context=WebsiteFooter.objects.first()
+<<<<<<< HEAD
     return {'footer':footer_context}
 
 def dep_logo(request):
     dep_logo=DepartmentLogo.objects.all().order_by('id')[:3] 
     return {'dep_logos':dep_logo}
+=======
+    return {'footer':footer_context}
+>>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a

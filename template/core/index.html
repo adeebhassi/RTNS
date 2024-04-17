@@ -69,6 +69,7 @@
     <!--Slider Start-->
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<<<<<<< HEAD
       <ol class="carousel-indicators">
         {% for image in slider_images %}
         <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
@@ -78,6 +79,19 @@
         {% for image in slider_images %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
           <img class="d-block w-100" src="{{ image.image.url }}" alt="Slide {{ forloop.counter }}">
+=======
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          {%  for image in slider_images %}
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{image.image.url}}" alt="First slide">
+          </div>
+          {% endfor %}
+>>>>>>> 1406f061cf995df5ec610e3f42e15e668e41998a
         </div>
         {% endfor %}
       </div>
