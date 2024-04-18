@@ -81,9 +81,9 @@
         </div>
         {% endfor %}
       </div>
-      {% if event_date %}
+      {% if event_time %}
       <div class="countdown">
-        <h3><b>{{ event_date }}</b></h3>
+        <h3><b>{{ event_date_formatted }}</b></h3>
         <h1>Event Start in</h1>
         <div id="countdown_active"></div>
         <a href="{% url 'event_reg:registration'%}" class="btn reg_button">Register</a>
