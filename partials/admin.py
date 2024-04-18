@@ -18,7 +18,8 @@ admin.site.register(WebsiteHeader, HeaderAdmin)
 
 class FooterAdmin(admin.ModelAdmin):
     list_display=['title']
-admin.site.register(WebsiteFooter,FooterAdmin)  
+admin.site.register(WebsiteFooter,FooterAdmin) 
+admin.site.register(SponsorLogo) 
 
 
 

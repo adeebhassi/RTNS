@@ -76,6 +76,7 @@ TEMPLATES = [
                 'utils.context_processors.header_context',
                 'utils.context_processors.footer_context',
                 'utils.context_processors.dep_logo',
+                'utils.context_processors.sponsor_logo',
             ],
         },
     },

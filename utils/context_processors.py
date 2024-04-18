@@ -12,3 +12,7 @@ def footer_context(request):
 def dep_logo(request):
     dep_logo=DepartmentLogo.objects.all().order_by('id')[:3] 
     return {'dep_logos':dep_logo}
+
+def sponsor_logo(request):
+    sponsor_logo=SponsorLogo.objects.all()
+    return {'sponsor_logo':sponsor_logo}

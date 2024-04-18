@@ -22,13 +22,20 @@ class DepartmentLogo(models.Model):
     header = models.ForeignKey(WebsiteHeader, on_delete=models.CASCADE, related_name='department_logos')
     logo = models.ImageField(upload_to='header/department_logos')
         
-        
+   
+def max_sponsor_logos(value):
+    footer = value.instance.footer
+    if footer.sponsor_logos.count() >= 2:
+        raise ValidationError("Maximum of 2 sponsor logos are allowed.")
+
+
+     
 class WebsiteFooter(models.Model):
     title=models.CharField(max_length=4,default='RTNS')
     year=models.IntegerField(default=2024)
     contact=models.CharField(max_length=13)
     email=models.EmailField(default='rtns@gmail.com')
-    sponsor_logo=models.ImageField(upload_to="images/footer",default='static/Image/ue.png')
+    # sponsor_logo=models.ImageField(upload_to="images/footer",default='static/Image/ue.png')
     
     def save(self, *args, **kwargs):
         if not self.pk and WebsiteFooter.objects.exists():
@@ -43,3 +50,6 @@ class WebsiteFooter(models.Model):
         footer_instance, _ = cls.objects.get_or_create(pk=1)
         return footer_instance
 
+class SponsorLogo(models.Model):
+    footer = models.ForeignKey(WebsiteFooter, on_delete=models.CASCADE, related_name='sponsor_logos')
+    image = models.ImageField(upload_to="images/footer", validators=[max_sponsor_logos])

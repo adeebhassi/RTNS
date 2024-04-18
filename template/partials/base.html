@@ -225,9 +225,13 @@
             </div>
         </div>
         <div class="col-sm-4 text-center">
+          {%if sponsor_logo %}
+
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
-          <img class="sponsors_logo mt-2" src="{{footer.sponsor_logo.url}}" alt="">
-            
+          {%for logo in sponsor_logo%}
+          <img class="sponsors_logo mt-2" src="{{logo.image.url}}" alt="">
+          {%endfor%}
+          {%endif%}
         </div>
         <div class="col-sm-4 text-center">
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Quick Links</p>
